@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="10">
+    <test name="Numbers" >
+        <classes>
+            <class name="org.seleniumqa.lesson_2.PrimeNumber"/>
+        </classes>
+    </test>
+
+    <test name="Strings" >
+        <classes>
+            <class name="org.seleniumqa.lesson_2.StringSearch"/>
+        </classes>
+    </test>
+</suite>
