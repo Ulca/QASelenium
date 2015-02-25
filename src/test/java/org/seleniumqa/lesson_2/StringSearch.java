@@ -7,23 +7,28 @@ import static org.testng.Assert.*;
  */
 public class StringSearch {
 
-    public String srcString, trgString;
+    public String srcString1, trgString1, trgString2;
 
     @BeforeTest
     public void setUp(){
-        srcString = "abcdefg";
-        trgString = "abcdefg";
+        srcString1 = "abcdefg";
+        trgString1 = "abcdefg";
+        trgString2 = "h";
     }
 
     @Test
     public void stringIsThere(){
-        assertEquals(findString(srcString, trgString), 0);
+        assertEquals(findString(srcString1, trgString1), 0);
     }
+
+    @Test
+    public void stringIsNotThere() {assertEquals(findString(srcString1, trgString2), -1);}
 
     @AfterTest
     public void TearDown(){
-        srcString = "";
-        trgString = "";
+        srcString1 = "";
+        trgString1 = "";
+        trgString2 = "";
     }
 
     static public int findString(String sStr, String tStr){
