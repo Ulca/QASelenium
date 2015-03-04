@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 //import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -43,10 +44,30 @@ public class StylusSearchTest {
 
     }
 
+    @Test
+    public void samsungTest() {
+
+        String testString = "Samsung";
+
+        WebElement searchField = driver.findElement(By.id("search_text"));
+
+        searchField.sendKeys(testString);
+
+        Actions builder = new Actions(driver);
+
+        builder.moveToElement(searchField);
+        builder.sendKeys(Keys.ENTER);
+        builder.perform();
+
+        WebElement firstSamsungLink = driver.findElement(By.xpath(".//*[@id='col1_content']/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[2]/h4/a"));
+
+        Assert.assertTrue(firstSamsungLink.getText().contains(testString));
+
+    }
+
     @AfterTest
     public void tearDown() {
         driver.quit();
     }
-
 
 }
